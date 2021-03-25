@@ -1,16 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:wanna_hyke/models/hike.dart';
-import 'package:wanna_hyke/models/mountain.dart';
-import 'package:wanna_hyke/services/database.dart';
 
 class HikeCard extends StatefulWidget {
   final HikeModel hike;
-  final MountainModel mountain;
   final FirebaseFirestore firestore;
   final String uid;
 
-  const HikeCard({Key key, this.hike, this.mountain, this.firestore, this.uid})
+  const HikeCard({Key key, this.hike, this.firestore, this.uid})
       : super(key: key);
 
   @override
@@ -34,16 +31,6 @@ class _HikeCardState extends State<HikeCard> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
-            Checkbox(
-              value: widget.mountain.hasClimbed,
-              onChanged: (newValue) {
-                setState(() {});
-                Database(firestore: widget.firestore).updateHike(
-                  uid: widget.uid,
-                  hikeId: widget.hike.hikeId,
-                );
-              },
             ),
           ],
         ),

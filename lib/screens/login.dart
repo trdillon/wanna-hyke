@@ -32,7 +32,7 @@ class _LoginState extends State<Login> {
                 TextFormField(
                   key: const ValueKey("username"),
                   textAlign: TextAlign.center,
-                  decoration: const InputDecoration(hintText: "Username"),
+                  decoration: const InputDecoration(hintText: "Email"),
                   controller: _emailController,
                 ),
                 TextFormField(
