@@ -7,11 +7,9 @@ class Database {
 
   Database({this.firestore});
 
-  Stream<List<MountainModel>> streamMountains({String uid}) {
+  Stream<List<MountainModel>> streamMountains() {
     try {
       return firestore
-          .collection("mountains")
-          .doc(uid)
           .collection("mountains")
           .snapshots()
           .map((query) {
@@ -26,9 +24,9 @@ class Database {
     }
   }
 
-  Future<void> addMountain({String uid, String name, String location, int difficulty, int elevation}) async {
+  Future<void> addMountain({String name, String location, int difficulty, int elevation}) async {
     try {
-      firestore.collection("mountains").doc(uid).collection("mountains").add({
+      firestore.collection("mountains").add({
         "name": name,
         "location": location,
         "difficulty": difficulty,
@@ -40,11 +38,9 @@ class Database {
     }
   }
 
-  Future<void> updateMountain({String uid, String mountainId, String name, String location, int difficulty, int elevation, bool hasClimbed}) async {
+  Future<void> updateMountain({String mountainId, String name, String location, int difficulty, int elevation, bool hasClimbed}) async {
     try {
       firestore
-          .collection("mountains")
-          .doc(uid)
           .collection("mountains")
           .doc(mountainId)
           .update({

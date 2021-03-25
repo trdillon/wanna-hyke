@@ -36,6 +36,41 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: const <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blueGrey,
+              ),
+              child: Text(
+                'What would you like to do?',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.add_circle_outline),
+              title: Text('Add New Hike'),
+            ),
+            ListTile(
+              leading: Icon(Icons.assignment),
+              title: Text('View Hikes'),
+            ),
+            ListTile(
+              leading: Icon(Icons.add_circle_outline),
+              title: Text('Request New Mountain'),
+            ),
+            ListTile(
+              leading: Icon(Icons.assignment),
+              title: Text('View Mountains'),
+            ),
+          ],
+        )
+      ),
       body: Column(
         children: <Widget>[
           const SizedBox(
