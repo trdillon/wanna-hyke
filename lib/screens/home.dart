@@ -39,32 +39,29 @@ class _HomeState extends State<Home> {
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
-          children: const <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blueGrey,
-              ),
-              child: Text(
-                'What would you like to do?',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24,
-                ),
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text(widget.auth.currentUser.displayName),
+              accountEmail: Text(widget.auth.currentUser.email),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.black,
+                //TODO: Change this to user avatar and add placeholder for null images
+                backgroundImage: NetworkImage("https://via.placeholder.com/150"),
               ),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.add_circle_outline),
-              title: Text('Add New Hike'),
+              title: Text('New Hike'),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.assignment),
               title: Text('View Hikes'),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.add_circle_outline),
               title: Text('Request New Mountain'),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.assignment),
               title: Text('View Mountains'),
             ),
